@@ -18,10 +18,11 @@ type Props = PropsWithChildren<{
   headerBackgroundColor: { dark: string; light: string };
 }>;
 
-export default function ParallaxScrollView({
-  children,
-  headerImage,
-  headerBackgroundColor,
+//Efeito parallax para o header, onde a imagem se move e escala de acordo com o scroll
+export default function ParallaxScrollView({  
+  children,    //Conteudo que fica abaixo do header
+  headerImage,  //Imagem do header
+  headerBackgroundColor,  //Cor de fundo do header, que muda de acordo com o tema
 }: Props) {
   const backgroundColor = useThemeColor({}, 'background');
   const colorScheme = useColorScheme() ?? 'light';

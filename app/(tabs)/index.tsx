@@ -6,6 +6,9 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import Animated from 'react-native-reanimated';
+
+const AnimatedView = Animated.View;
 
 export default function HomeScreen() {
   return (
@@ -22,19 +25,44 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
+        <ThemedText type="subtitle">Em Destaque:</ThemedText>
+        <AnimatedView style={{ display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 8, flexDirection: 'row' }}>
+          
+          <ThemedView style={styles.carrosselContainer}>
+            <AnimatedView style={styles.carrosselItem}>
+              <AnimatedView style={styles.bannerEventoBody}>
+                <Image
+                  source={require('@/assets/images/partial-react-logo.png')}
+                  style={styles.bannerEventoImage}
+                />
+                <ThemedText type="subtitle">Evento de Lançamento do PedalHub</ThemedText>
+              </AnimatedView>
+            </AnimatedView>
+          </ThemedView>
+        
+          <ThemedView style={styles.carrosselContainer}>
+            <AnimatedView style={styles.carrosselItem}>
+              <AnimatedView style={styles.bannerEventoBody}>'
+              <Image
+              source={require('@/assets/images/partial-react-logo.png')}
+              style={styles.bannerEventoImage}
+              />
+              <ThemedText type="subtitle" >Evento de Lançamento do PedalHub</ThemedText>
+              </AnimatedView>
+            </AnimatedView>
+          </ThemedView> 
+          <ThemedView style={styles.carrosselContainer}>
+            <AnimatedView style={styles.carrosselItem}>
+              <AnimatedView style={styles.bannerEventoBody}>'
+              <Image
+              source={require('@/assets/images/partial-react-logo.png')}
+              style={styles.bannerEventoImage}
+              />
+              <ThemedText type="subtitle" >Evento de Lançamento do PedalHub</ThemedText>
+              </AnimatedView>
+            </AnimatedView>
+          </ThemedView> 
+        </AnimatedView>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <Link href="/modal">
@@ -95,4 +123,25 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+  carrosselContainer: {
+    width: 320,
+    overflow: 'hidden',
+    borderRadius: 12,
+  },
+  carrosselItem: {
+    display: 'flex',
+  },
+  bannerEventoBody: {
+    width: 300,
+    height: 380,
+    borderRadius: 20,
+    borderColor: '#fff',
+    backgroundColor: '#fff',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+  },
+  bannerEventoImage: {
+    width: '100%',
+    height: '50%'
+  }
 });
